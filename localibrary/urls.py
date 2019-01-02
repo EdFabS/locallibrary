@@ -25,6 +25,7 @@ urlpatterns = [
     #
     url(r'^prueba/', views.prueba),
     url(r'^$', views.index),
+    
     #url(r'^dif/[0-9]{2}', include('catalogo.urls')),
     #url('', RedirectView.as_view(url='/catalogo/', permanent=True)),
 ]
