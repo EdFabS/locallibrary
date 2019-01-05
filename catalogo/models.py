@@ -55,7 +55,7 @@ class BookInstance(models.Model):
 	Modelo que representa una copia específica de un libro (i.e. 	ue puede ser pewsentado por la biblioteca).
 	"""
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para este libro particular en toda la biblioteca")
-	book = model.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
+	book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
 	imprint =models.CharField(max_length=200)
 	due_back = models.DateField(null=True, blank=True)
 
