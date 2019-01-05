@@ -32,7 +32,7 @@ class Book(models.Model):
 
 	isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn"> ISBN numbre</a>') 
 
-	genere = models.ManyToManyField(Genre, Help_text="Select a genre for his book")
+	genere = models.ManyToManyField(Genre, help_text="Select a genre for his book")
 	# ManyToManyField, porque un género puede contener muchos linros y un libro puede cubrir varios géneros.
 	#La clase Genre ya ha sido definida, entonces podemos especificar el objeto arriba.
 
