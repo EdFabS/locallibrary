@@ -16,6 +16,7 @@ class Genre(models.Model):
 		"""
 		return self.name
 
+
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 
 class Book(models.Model):
@@ -32,7 +33,7 @@ class Book(models.Model):
 
 	isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn"> ISBN numbre</a>') 
 
-	genere = models.ManyToManyField(Genre, help_text="Select a genre for his book")
+	genre = models.ManyToManyField(Genre, help_text="Select a genre for his book")
 	# ManyToManyField, porque un género puede contener muchos linros y un libro puede cubrir varios géneros.
 	#La clase Genre ya ha sido definida, entonces podemos especificar el objeto arriba.
 
@@ -47,6 +48,15 @@ class Book(models.Model):
 		Devuelve elURL a una instacia particular de Book
 		"""
 		return reverse('book-detail', args=[str(self.id)])
+
+	def display_genre(self):
+		"""
+        Creates a string for the Genre. This is required to display genre in Admin.
+        """
+		return ', '.join([ genre.name for genre in self.genre.all()[:3] ])
+
+	display_genre.short_description = 'Genre'
+    
 
 import uuid # Requerida para las instancias de libros únicos
 
@@ -97,4 +107,5 @@ class Author(models.Model):
 		"""
 		String para representar el Objeto Modelo
 		"""
+		#pass
 		return '%s, %s' % (self.last_name, self.first_name)
