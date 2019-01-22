@@ -30,6 +30,8 @@ def diferente(request):
 
 class BookListView(generic.ListView):
 	model = Book
+	paginate_by = 2
 
 class BookDetailView(generic.DetailView):
 	model = Book
+	paginate_by = 10
