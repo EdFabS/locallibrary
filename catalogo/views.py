@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book, Author, BookInstance, Genre
+from django.views import generic
 
 # Create your views here.
 def index(request):
@@ -26,3 +27,9 @@ def index(request):
 
 def diferente(request):
 	return HttpResponse("<h1>esto es como se crean las direfentes ulrs en mismas apps</h1>")
+
+class BookListView(generic.ListView):
+	model = Book
+
+class BookDetailView(generic.DetailView):
+	model = Book
