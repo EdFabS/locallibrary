@@ -96,16 +96,15 @@ class Author(models.Model):
 	date_of_birth = models.DateField(null=True, blank=True)
 	date_of_death = models.DateField('Died', null=True, blank=True)
 
-	def get_absolute_url(self):
-		"""
-		Retorna la url para acceder a una instancia particular de un autor.
-		"""
-		return reverse('author-detal', args=[str(self.id)])
-
-
 	def __str__(self):
 		"""
 		String para representar el Objeto Modelo
 		"""
 		#pass
 		return '%s, %s' % (self.last_name, self.first_name)
+
+	def get_absolute_url(self):
+		"""
+		Retorna la url para acceder a una instancia particular de un autor.
+		"""
+		return reverse('author-detail', args=[str(self.id)])
