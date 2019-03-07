@@ -113,3 +113,15 @@ class AuthorUpdate(UpdateView):
 class AuthorDelete(DeleteView):
 	model = Author
 	success_url = reverse_lazy('author')
+
+class BookCreate(CreateView):
+	model = Book
+	fields = '__all__'
+
+class BookUpdate(UpdateView):
+	model = Book
+	fields = '__all__'
+
+class BookDelete(DeleteView):
+	model = Book
+	sucess_url = reverse_lazy('book');
