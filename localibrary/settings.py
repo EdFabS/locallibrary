@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '4=tu*z7ili*+mye@r*+sieo)d12+g4
 #DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['intense-spire-55092.herokuapp.com', '127.0.0.1']
 #ALLOWED_HOSTS = ['198.168.0.103', 'localhost', '127.0.0.1']
 
 
